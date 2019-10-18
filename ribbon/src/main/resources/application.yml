@@ -1,0 +1,21 @@
+server:
+  port: 20012
+
+eureka:
+  instance:
+    ip-address: 10.11.1.111
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://10.11.1.111:20001/eureka/,http://10.11.1.130:20002/eureka/
+    # 服务消费者，需要获取服务，必须为true；否则调用其他服务失败；
+    fetch-registry: true
+    # 获取服务的缓存清单 更新频率
+    registry-fetch-interval-seconds: 30
+
+spring:
+  application:
+    name: ribbon-consumer
+
+
