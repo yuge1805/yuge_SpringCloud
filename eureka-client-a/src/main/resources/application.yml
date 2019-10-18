@@ -1,0 +1,16 @@
+server:
+  port: 20011
+
+spring:
+  application:
+    name: service-a
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.11.1.130:20002/eureka/
+  instance:
+    # 定义服务失效时间
+    lease-expiration-duration-in-seconds: 20
+    # 定义续约任务调用间隔时间
+    lease-renewal-interval-in-seconds: 10
